@@ -1,5 +1,3 @@
-# agents/agent_base.py
-
 import groq
 from abc import ABC, abstractmethod
 from loguru import logger
@@ -32,7 +30,7 @@ class AgentBase(ABC):
                         logger.debug(f"  {msg['role']}: {msg['content']}")
                 
                 response = client.chat.completions.create(
-                    model="mixtral-8x7b-32768",
+                    model="llama3-8b-8192",  # Updated to Llama 3
                     messages=messages,
                     temperature=temperature,
                     max_tokens=max_tokens,
